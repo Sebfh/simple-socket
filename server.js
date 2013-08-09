@@ -13,8 +13,6 @@ io.configure(function () {
 // start listening for HTTP connections
 app.listen(port);
 
-console.log('listening on port:' + port);
-
 function handler (req, res) {
   fs.readFile(__dirname + '/index.html',
   function (err, data) {
