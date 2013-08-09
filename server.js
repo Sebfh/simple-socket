@@ -4,6 +4,12 @@ var app = require('http').createServer(handler)
 
 // Configure the port to run in the Windows Azure emulator
 var port = process.env.port || 81;
+
+io.configure(function () { 
+  io.set("transports", ["xhr-polling"]); 
+  io.set("polling duration", 10); 
+});
+
 // start listening for HTTP connections
 app.listen(port);
 
