@@ -2,7 +2,7 @@ var app = require('http').createServer(handler)
   , io = require('socket.io').listen(app)
   , fs = require('fs')
 
-// Configure the port to run in the Windows Azure emulator
+// Configure the port to run in
 var port = process.env.port || 81;
 
 io.configure(function () { 
