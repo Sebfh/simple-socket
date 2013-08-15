@@ -1,8 +1,22 @@
-<script src="http://simple-socket.azurewebsites.net/socket.io/socket.io.js"></script>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Client &mdash; RFID</title>
+	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+	<script src="http://simple-socket.azurewebsites.net/socket.io/socket.io.js"></script>
+</head>
+<body>
+	<h1>log</h1>
+	<ul class="log">
+	</ul>	
 <script>
   var socket = io.connect('http://simple-socket.azurewebsites.net');
   socket.on('news', function (data) {
     console.log(data);
-    socket.emit('my other event', { my: 'data' });
+    $('.log').append('<li>' + data.message + '</li>')
   });
 </script>
+</body>
+</html>
+
+

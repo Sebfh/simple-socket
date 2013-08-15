@@ -27,7 +27,7 @@ function handler (req, res) {
 }
 
 io.sockets.on('connection', function (socket) {
-  socket.emit('news', { hello: 'world' });
+  socket.emit('news', { message: 'world' });
   socket.emit('news', { port: port });
   socket.on('my other event', function (data) {
     console.log(data);
