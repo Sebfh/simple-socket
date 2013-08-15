@@ -10,8 +10,11 @@
 	<ul class="log">
 	</ul>	
 <script>
-	var socket = io.connect('http://simple-socket.azurewebsites.net');
+	var socket = io.connect('http://simple-socket.azurewebsites.net:81');
   	socket.on('rfid', function (data) {
+    	console.log(data);
+  	});
+  	socket.on('handshake', function (data) {
     	console.log(data);
   	});
 </script>

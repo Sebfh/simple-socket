@@ -15,7 +15,7 @@
 		<input type="submit" value="Emit" />
 	</form>
 	<script>
-		var socket = io.connect('http://simple-socket.azurewebsites.net');
+		var socket = io.connect('http://simple-socket.azurewebsites.net:81');
 	  	socket.on('handshake', function (data) {
 	    	console.log(data);
 	    	// socket.emit('my other event', { my: 'data' });
