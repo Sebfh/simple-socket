@@ -6,6 +6,12 @@
 	<script src="http://simple-socket.azurewebsites.net/socket.io/socket.io.js"></script>
 </head>
 <body>
-	<h1>RFID</h1>
+	<h1>LOG</h1>
+	<script>
+  	var socket = io.connect('http://simple-socket.azurewebsites.net');
+  	socket.on('news', function (data) {
+    	console.log(data);
+  	});
+</script>
 </body>
 </html>
