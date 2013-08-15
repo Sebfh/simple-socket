@@ -29,8 +29,9 @@ function handler (req, res) {
 io.sockets.on('connection', function (socket) {
   socket.emit('news', { message: 'world' });
   socket.emit('news', { port: port });
+
   socket.on('news', function (data) {
     console.log(data);
-    socket.emit('news', data);
+    io.sockets.emit('news', data);
   });
 });
