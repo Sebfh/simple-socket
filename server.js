@@ -27,8 +27,13 @@ function handler (req, res) {
 }
 
 io.sockets.on('connection', function (socket) {
-  socket.emit('news', { hello: 'world' });
-  socket.emit('news', { port: port });
+  socket.emit('handshake', { hello: 'world' });
+  socket.emit('handshake', { port: port });
+
+  socket.on('rfid', function (data) {
+    socket.emit('rfid', data);
+  });
+
   socket.on('my other event', function (data) {
     console.log(data);
   });
