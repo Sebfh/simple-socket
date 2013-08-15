@@ -26,7 +26,7 @@ function handler (req, res) {
   });
 }
 
-io.sockets.on('connection', function (socket) {
+io.sockets.on('connect', function (socket) {
   socket.emit('handshake', { hello: 'world' });
   socket.emit('handshake', { port: port });
 
