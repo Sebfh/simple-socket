@@ -9,11 +9,20 @@
 	<h1>log</h1>
 	<ul class="log">
 	</ul>	
+
+	<a href="#" id="btnEmit">Emit</a>
 <script>
   var socket = io.connect('http://simple-socket.azurewebsites.net');
   socket.on('news', function (data) {
     console.log(data);
     $('.log').append('<li>' + data.message + '</li>')
+  });
+  socket.emit('news', { message: 'world' });
+
+  $('#btnEmit').click(function(e){
+  	e.preventDefault();
+
+  	socket.emit('news', { message: 'world' });
   });
 </script>
 </body>
