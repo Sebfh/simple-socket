@@ -1,38 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Log &mdash; RFID</title>
-	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-	<script src="http://simple-socket.azurewebsites.net/socket.io/socket.io.js"></script>
-</head>
-<body>
-	<h1>RFID client</h1>
-	<form id="frmForm" action="/" method="post">
-		<input type="text" id="txtMessage" style="width: 220px;" />
-		<select id="selChannel" style="width:220px;">
-			<option value="rfid">RFID</option>
-		</select>
-		<input type="submit" value="Emit" />
-	</form>
-	<script>
-		var socket = io.connect('http://simple-socket.azurewebsites.net:81');
-	  	socket.on('handshake', function (data) {
-	    	console.log(data);
-	    	// socket.emit('my other event', { my: 'data' });
-	  	});
-
-	  	$('#frmForm').submit(function(e){
-	  		e.preventDefault();
-
-	  		var message = $('#txtMessage').val();
-	  		var channel = $('#selChannel').val();
-	  		
-	  		console.log('emit: ' + message + ' on ' + channel);
-
-	  		socket.emit(channel, message);
-	  	});
-	  	
-
+<script src="http://simple-socket.azurewebsites.net/socket.io/socket.io.js"></script>
+<script>
+  var socket = io.connect('http://simple-socket.azurewebsites.net');
+  socket.on('news', function (data) {
+    console.log(data);
+    socket.emit('my other event', { my: 'data' });
+  });
 </script>
-</body>
-</html>
